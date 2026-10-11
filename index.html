@@ -1,0 +1,2493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070709">
+<title>Sanil Baitha — Computer Science Engineering Student | Portfolio</title>
+<meta name="description" content="Personal portfolio of Sanil Baitha, Computer Science Engineering Student. AI-Assisted Software Development, Full-Stack Web Development, and Python.">
+<meta property="og:title" content="Sanil Baitha — CSE Student &amp; Developer Portfolio">
+<meta property="og:description" content="AI-Assisted Software Development | Full-Stack Web Development | Python. Explore projects, interactive terminal Sanil.exe, and verified work.">
+<meta property="og:type" content="website">
+
+<script>
+/* Entrance gate script */
+(function(d){
+  try{
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'animate' in Element.prototype){
+      d.classList.add('is-entering');
+      setTimeout(function(){
+        if(!window.__portfolioEntrance) d.classList.remove('is-entering');
+      }, 2600);
+    }
+  }catch(e){}
+})(document.documentElement);
+</script>
+
+<style>
+@font-face{font-family:"Hanken";src:url(assets/hanken-variable.woff2) format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"JBMono";src:url(assets/jb-mono-variable.woff2) format("woff2");font-weight:100 800;font-display:block}
+
+:root{
+  --bg:#070709;
+  --bg-card:rgba(18, 20, 29, 0.72);
+  --bg-card-hover:rgba(26, 30, 44, 0.9);
+  --border:rgba(255, 255, 255, 0.08);
+  --border-focus:rgba(222, 193, 252, 0.5);
+  --lilac:#DEC1FC;
+  --accent-cyan:#38bdf8;
+  --accent-green:#00B67A;
+  --accent-amber:#f59e0b;
+  --terminal-bg:#0a0c14;
+  --ink:#12071a;
+  --text-main:#f1f5f9;
+  --text-muted:#94a3b8;
+  --text-sub:#cbd5e1;
+  --nav:#c2c2c2;
+  --frame-w:min(1240px, 92vw);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--text-main)}
+body{
+  font-family:"Hanken",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text-main);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:geometricPrecision;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--lilac);outline-offset:3px;border-radius:4px}
+
+/* Header & Nav */
+.header-bar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  height:72px;
+  background:rgba(7,7,9,0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:background .2s, border-color .2s;
+}
+.header-bar.scrolled{
+  background:rgba(7,7,9,0.96);
+  border-bottom-color:rgba(255,255,255,0.12);
+}
+.nav-container{
+  max-width:var(--frame-w);
+  margin:0 auto;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+}
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1.5px solid var(--lilac);
+  overflow:hidden;
+  background:#1a1429;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"JBMono",monospace;
+  font-size:13px;
+  font-weight:700;
+  color:var(--lilac);
+  flex-shrink:0;
+}
+.brand-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+}
+.brand-text{
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+}
+.brand-tag{
+  font-family:"JBMono",monospace;
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:0.04em;
+  color:var(--accent-cyan);
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.nav-links a{
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:0.03em;
+  color:var(--nav);
+  transition:color .18s;
+  padding:6px 2px;
+  position:relative;
+}
+.nav-links a:hover, .nav-links a.active{color:#fff}
+.nav-links a.active::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:var(--lilac);
+  border-radius:1px;
+}
+
+.header-cta-group{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.btn-gh-header{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  color:var(--text-sub);
+  font-size:12.5px;
+  padding:7px 14px;
+  border-radius:20px;
+  transition:all .15s;
+}
+.btn-gh-header:hover{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  border-color:var(--lilac);
+}
+.menu-btn{
+  display:none;
+  align-items:center;
+  gap:8px;
+  background:none;
+  border:0;
+  color:var(--nav);
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  padding:8px 4px;
+}
+.menu-btn i{
+  position:relative;
+  display:block;
+  width:18px;
+  height:7px;
+}
+.menu-btn i::before, .menu-btn i::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:1.5px;
+  background:currentColor;
+  transition:transform .22s ease;
+}
+.menu-btn i::before{top:0}
+.menu-btn i::after{bottom:0}
+.nav-open .menu-btn i::before{transform:translateY(3px) rotate(45deg)}
+.nav-open .menu-btn i::after{transform:translateY(-3px) rotate(-45deg)}
+
+/* Hero Section */
+.hero-stage{
+  position:relative;
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:110px 24px 70px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 18%;
+  opacity:0.42;
+  filter:contrast(1.05) brightness(0.95);
+  transition:opacity .4s ease;
+}
+.hero-photo-fallback{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 75% 25%, rgba(56, 189, 248, 0.14) 0%, transparent 60%),
+             radial-gradient(ellipse at 25% 75%, rgba(222, 193, 252, 0.16) 0%, transparent 60%),
+             #070709;
+}
+.hero-shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, 
+    rgba(7,7,9,0.70) 0%, 
+    rgba(7,7,9,0.85) 45%, 
+    rgba(7,7,9,0.96) 80%, 
+    #070709 100%);
+}
+.hero-lift{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 30%, rgba(222, 193, 252, 0.08) 0%, transparent 60%);
+  mix-blend-mode:screen;
+}
+
+.photo-manager{
+  position:absolute;
+  top:84px;
+  right:24px;
+  z-index:30;
+}
+.photo-manager-btn{
+  background:rgba(18, 20, 29, 0.85);
+  border:1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter:blur(10px);
+  color:var(--text-sub);
+  font-size:12px;
+  font-family:"JBMono",monospace;
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:all .18s;
+}
+.photo-manager-btn:hover{
+  background:rgba(26, 30, 44, 0.98);
+  color:#fff;
+  border-color:var(--lilac);
+}
+.photo-manager-input{display:none}
+
+.hero-content{
+  position:relative;
+  z-index:10;
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.hero-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 16px;
+  background:rgba(222, 193, 252, 0.1);
+  border:1px solid rgba(222, 193, 252, 0.25);
+  border-radius:999px;
+  font-family:"JBMono",monospace;
+  font-size:12px;
+  font-weight:400;
+  letter-spacing:0.04em;
+  color:var(--lilac);
+  margin-bottom:18px;
+}
+.hero-pill-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent-green);
+  box-shadow:0 0 8px var(--accent-green);
+}
+.hero-name{
+  font-size:clamp(44px, 8vw, 84px);
+  font-weight:750;
+  letter-spacing:-0.03em;
+  line-height:1.02;
+  text-transform:uppercase;
+  color:#fff;
+  margin-bottom:12px;
+  background:linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-role{
+  font-size:clamp(17px, 2.5vw, 24px);
+  font-weight:300;
+  letter-spacing:-0.01em;
+  color:var(--text-sub);
+  margin-bottom:14px;
+}
+.hero-role strong{
+  font-weight:600;
+  color:#fff;
+}
+.hero-headline-badges{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.headline-badge{
+  font-family:"JBMono",monospace;
+  font-size:12px;
+  padding:4px 12px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:6px;
+  color:var(--text-sub);
+}
+.headline-badge.highlight{
+  border-color:rgba(56, 189, 248, 0.35);
+  color:var(--accent-cyan);
+  background:rgba(56, 189, 248, 0.08);
+}
+.hero-tagline{
+  max-width:720px;
+  font-size:clamp(15px, 2vw, 17px);
+  font-weight:300;
+  color:var(--text-muted);
+  line-height:1.65;
+  margin-bottom:34px;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:44px;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--lilac);
+  color:var(--ink);
+  font-weight:600;
+  font-size:13.5px;
+  padding:12px 24px;
+  border-radius:6px;
+  transition:all .18s ease;
+  border:1px solid transparent;
+}
+.btn-primary:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px -6px rgba(222, 193, 252, 0.25);
+}
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255, 255, 255, 0.05);
+  color:#fff;
+  font-weight:500;
+  font-size:13.5px;
+  padding:12px 22px;
+  border-radius:6px;
+  border:1px solid rgba(255, 255, 255, 0.12);
+  transition:all .18s ease;
+}
+.btn-secondary:hover{
+  background:rgba(255, 255, 255, 0.1);
+  border-color:rgba(255, 255, 255, 0.25);
+  transform:translateY(-2px);
+}
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:transparent;
+  color:var(--text-sub);
+  font-weight:500;
+  font-size:13.5px;
+  padding:12px 20px;
+  border-radius:6px;
+  border:1px solid rgba(255, 255, 255, 0.12);
+  transition:all .18s ease;
+}
+.btn-outline:hover{
+  color:#fff;
+  border-color:var(--lilac);
+  background:rgba(222, 193, 252, 0.05);
+  transform:translateY(-2px);
+}
+.hero-meta-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  padding-top:22px;
+  border-top:1px solid rgba(255, 255, 255, 0.08);
+  font-family:"JBMono",monospace;
+  font-size:12px;
+  color:var(--text-muted);
+}
+.meta-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.meta-item svg{color:var(--accent-cyan);width:14px;height:14px}
+.meta-item b{color:#fff;font-weight:500}
+
+/* Common Section Wrapper */
+.section-wrapper{
+  padding:80px 24px;
+  max-width:var(--frame-w);
+  margin:0 auto;
+  position:relative;
+}
+.section-header{margin-bottom:36px}
+.section-pretitle{
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:0.1em;
+  color:var(--lilac);
+  text-transform:uppercase;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.section-pretitle::before{
+  content:'';
+  width:16px;
+  height:1px;
+  background:var(--lilac);
+}
+.section-title{
+  font-size:clamp(26px, 3.5vw, 38px);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:#fff;
+}
+.section-desc{
+  margin-top:10px;
+  font-size:15px;
+  font-weight:300;
+  color:var(--text-muted);
+  max-width:680px;
+}
+
+/* =========================================================
+   FEATURE 1: INTERACTIVE TERMINAL — Sanil.exe
+   ========================================================= */
+.terminal-window{
+  background:var(--terminal-bg);
+  border:1px solid rgba(255, 255, 255, 0.14);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 24px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(222, 193, 252, 0.1);
+  margin-bottom:24px;
+}
+.terminal-header{
+  background:rgba(18, 22, 34, 0.95);
+  border-bottom:1px solid rgba(255, 255, 255, 0.08);
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  user-select:none;
+}
+.terminal-dots{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.terminal-dot{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  display:inline-block;
+}
+.terminal-dot.red{background:#ef4444}
+.terminal-dot.yellow{background:#f59e0b}
+.terminal-dot.green{background:#10b981}
+
+.terminal-title{
+  font-family:"JBMono",monospace;
+  font-size:12px;
+  color:var(--text-muted);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.terminal-status-badge{
+  font-family:"JBMono",monospace;
+  font-size:10px;
+  color:var(--accent-green);
+  background:rgba(0, 182, 122, 0.12);
+  padding:2px 8px;
+  border-radius:10px;
+  border:1px solid rgba(0, 182, 122, 0.25);
+}
+
+.terminal-chips-bar{
+  background:rgba(14, 17, 26, 0.9);
+  border-bottom:1px solid rgba(255, 255, 255, 0.06);
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.terminal-chips-label{
+  font-family:"JBMono",monospace;
+  font-size:11px;
+  color:var(--text-muted);
+  margin-right:4px;
+}
+.chip-btn{
+  background:rgba(255, 255, 255, 0.05);
+  border:1px solid rgba(255, 255, 255, 0.1);
+  color:var(--lilac);
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  padding:4px 10px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.chip-btn:hover{
+  background:rgba(222, 193, 252, 0.15);
+  border-color:var(--lilac);
+  color:#fff;
+  transform:translateY(-1px);
+}
+.chip-btn.clear-btn{
+  color:#f87171;
+  border-color:rgba(248, 113, 113, 0.25);
+}
+.chip-btn.clear-btn:hover{
+  background:rgba(248, 113, 113, 0.15);
+  color:#fff;
+}
+
+.terminal-body{
+  padding:20px;
+  min-height:340px;
+  max-height:480px;
+  overflow-y:auto;
+  font-family:"JBMono",monospace;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--text-sub);
+}
+.terminal-log-entry{
+  margin-bottom:14px;
+}
+.terminal-prompt-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--accent-cyan);
+  font-weight:600;
+}
+.terminal-user{color:var(--accent-green)}
+.terminal-at{color:var(--text-muted)}
+.terminal-host{color:var(--accent-cyan)}
+.terminal-path{color:var(--lilac)}
+.terminal-command-text{color:#fff;font-weight:400}
+
+.terminal-output{
+  margin-top:6px;
+  padding-left:14px;
+  border-left:2px solid rgba(255, 255, 255, 0.1);
+  color:var(--text-sub);
+}
+.terminal-output p{margin-bottom:4px}
+.terminal-output p:last-child{margin-bottom:0}
+.terminal-output .highlight{color:#fff;font-weight:600}
+.terminal-output .accent{color:var(--lilac)}
+.terminal-output .cyan{color:var(--accent-cyan)}
+.terminal-output .green{color:var(--accent-green)}
+.terminal-output .amber{color:var(--accent-amber)}
+
+.terminal-input-container{
+  border-top:1px solid rgba(255, 255, 255, 0.08);
+  background:rgba(12, 14, 22, 0.95);
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.terminal-prompt-symbol{
+  font-family:"JBMono",monospace;
+  font-size:13px;
+  color:var(--accent-green);
+  font-weight:700;
+  user-select:none;
+}
+.terminal-input{
+  flex:1;
+  background:transparent;
+  border:0;
+  outline:none;
+  color:#fff;
+  font-family:"JBMono",monospace;
+  font-size:13px;
+}
+.terminal-input::placeholder{
+  color:rgba(148, 163, 184, 0.5);
+  font-size:12px;
+}
+
+/* =========================================================
+   FEATURE 2: PROFESSIONAL PROJECT CASE STUDIES
+   ========================================================= */
+.projects-showcase{
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+.case-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:32px;
+  position:relative;
+  transition:all .22s ease;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+.case-card:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(222, 193, 252, 0.3);
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px -15px rgba(0,0,0,0.6);
+}
+.case-card.featured-primary{
+  background:linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(222, 193, 252, 0.05) 100%), var(--bg-card);
+  border-color:rgba(56, 189, 248, 0.35);
+  box-shadow:0 16px 36px -12px rgba(56, 189, 248, 0.15);
+}
+.case-card.featured-primary:hover{
+  border-color:rgba(56, 189, 248, 0.6);
+}
+
+.case-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.case-badge-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.case-badge{
+  font-family:"JBMono",monospace;
+  font-size:11px;
+  padding:3px 9px;
+  border-radius:4px;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+.badge-order{
+  background:rgba(255,255,255,0.06);
+  color:var(--text-muted);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.badge-freelance{
+  background:rgba(56, 189, 248, 0.15);
+  color:var(--accent-cyan);
+  border:1px solid rgba(56, 189, 248, 0.3);
+}
+.badge-team{
+  background:rgba(222, 193, 252, 0.15);
+  color:var(--lilac);
+  border:1px solid rgba(222, 193, 252, 0.3);
+}
+.badge-personal{
+  background:rgba(255, 255, 255, 0.08);
+  color:var(--text-sub);
+  border:1px solid rgba(255, 255, 255, 0.14);
+}
+.case-status-indicator{
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  color:var(--accent-amber);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.status-pulse-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--accent-amber);
+  box-shadow:0 0 8px var(--accent-amber);
+}
+
+.case-title-row{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.case-title{
+  font-size:24px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.01em;
+}
+.case-subtitle{
+  font-size:13.5px;
+  color:var(--accent-cyan);
+  font-weight:400;
+}
+.case-description{
+  font-size:14.5px;
+  color:var(--text-sub);
+  line-height:1.7;
+}
+
+.case-contribution-box{
+  background:rgba(255, 255, 255, 0.03);
+  border-left:3px solid var(--lilac);
+  padding:12px 16px;
+  border-radius:0 8px 8px 0;
+  font-size:13.5px;
+  color:var(--text-sub);
+  line-height:1.6;
+}
+.case-contribution-box strong{color:#fff}
+
+.case-tech-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.tech-pill{
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  background:rgba(255, 255, 255, 0.05);
+  color:var(--text-sub);
+  padding:4px 10px;
+  border-radius:4px;
+  border:1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding-top:8px;
+}
+.btn-case-live{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--lilac);
+  color:var(--ink);
+  font-weight:600;
+  font-size:13px;
+  padding:9px 18px;
+  border-radius:6px;
+  transition:all .15s;
+}
+.btn-case-live:hover{
+  filter:brightness(1.08);
+  transform:translateY(-1px);
+}
+.btn-case-gh{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255, 255, 255, 0.06);
+  color:#fff;
+  border:1px solid rgba(255, 255, 255, 0.12);
+  font-size:13px;
+  font-weight:500;
+  padding:9px 16px;
+  border-radius:6px;
+  transition:all .15s;
+}
+.btn-case-gh:hover{
+  background:rgba(255, 255, 255, 0.12);
+  border-color:var(--lilac);
+}
+.btn-case-inspect{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:transparent;
+  color:var(--text-muted);
+  border:1px solid transparent;
+  font-size:13px;
+  padding:9px 14px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-case-inspect:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,0.1);
+}
+
+/* AI Tools & Modern Workflow */
+.ai-tools-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:28px;
+}
+.ai-tool-pill{
+  background:rgba(222, 193, 252, 0.08);
+  border:1px solid rgba(222, 193, 252, 0.22);
+  border-radius:8px;
+  padding:10px 18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:"JBMono",monospace;
+  font-size:13px;
+  color:#fff;
+}
+.ai-tool-pill svg{color:var(--lilac);width:16px;height:16px}
+.positioning-quote{
+  background:linear-gradient(90deg, rgba(222, 193, 252, 0.08), transparent);
+  border-left:3px solid var(--lilac);
+  padding:16px 20px;
+  border-radius:0 8px 8px 0;
+  font-size:14.5px;
+  color:var(--text-sub);
+  margin-bottom:32px;
+  line-height:1.6;
+}
+.positioning-quote b{color:#fff}
+.workflow-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:20px;
+}
+.workflow-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:22px;
+  transition:all .2s;
+}
+.workflow-card:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(56, 189, 248, 0.3);
+  transform:translateY(-2px);
+}
+.workflow-icon{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  background:rgba(56, 189, 248, 0.1);
+  color:var(--accent-cyan);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+}
+.workflow-icon svg{width:18px;height:18px}
+.workflow-title{
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:6px;
+}
+.workflow-desc{
+  font-size:13px;
+  color:var(--text-muted);
+  line-height:1.55;
+}
+
+/* Skills Section */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:20px;
+}
+.skill-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:22px;
+  transition:all .18s;
+}
+.skill-card:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(255,255,255,0.16);
+  transform:translateY(-2px);
+}
+.skill-category-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.skill-icon-box{
+  width:32px;
+  height:32px;
+  border-radius:6px;
+  background:rgba(222, 193, 252, 0.1);
+  color:var(--lilac);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.skill-icon-box svg{width:16px;height:16px}
+.skill-category-title{
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+}
+.skill-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.skill-tag{
+  background:rgba(255, 255, 255, 0.05);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  border-radius:6px;
+  padding:5px 10px;
+  font-size:12.5px;
+  color:var(--text-sub);
+  transition:all .15s;
+}
+.skill-tag:hover{
+  background:rgba(222, 193, 252, 0.12);
+  border-color:rgba(222, 193, 252, 0.3);
+  color:#fff;
+}
+
+/* Learning & Activities */
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:20px;
+}
+.learning-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:22px;
+  transition:all .18s;
+}
+.learning-card:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(222, 193, 252, 0.25);
+}
+.learning-step{
+  font-family:"JBMono",monospace;
+  font-size:11px;
+  color:var(--accent-green);
+  margin-bottom:8px;
+}
+.learning-title{
+  font-size:16px;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:8px;
+}
+.learning-desc{
+  font-size:13px;
+  color:var(--text-muted);
+  line-height:1.55;
+}
+
+/* Education Timeline */
+.timeline{
+  position:relative;
+  max-width:840px;
+  margin:0 auto;
+  padding-left:32px;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  top:8px;
+  bottom:8px;
+  left:8px;
+  width:2px;
+  background:linear-gradient(to bottom, var(--lilac), var(--accent-cyan));
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:32px;
+}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{
+  position:absolute;
+  left:-32px;
+  top:6px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2.5px solid var(--lilac);
+  transform:translateX(-1px);
+}
+.timeline-dot.cyan{border-color:var(--accent-cyan)}
+.timeline-content{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:22px;
+  transition:all .18s;
+}
+.timeline-content:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(255, 255, 255, 0.16);
+  transform:translateX(4px);
+}
+.timeline-date{
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  color:var(--lilac);
+  margin-bottom:4px;
+  display:inline-block;
+}
+.timeline-degree{
+  font-size:17px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:4px;
+}
+.timeline-univ{
+  font-size:13.5px;
+  color:var(--accent-cyan);
+  margin-bottom:10px;
+}
+.timeline-meta-badges{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.timeline-badge{
+  font-family:"JBMono",monospace;
+  font-size:11.5px;
+  padding:3px 9px;
+  border-radius:4px;
+  background:rgba(255, 255, 255, 0.05);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  color:var(--text-sub);
+}
+.timeline-badge strong{color:#fff}
+
+/* Contact Section */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:36px;
+  align-items:flex-start;
+}
+.contact-info-panel{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.contact-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  transition:all .18s;
+}
+.contact-card:hover{
+  background:var(--bg-card-hover);
+  border-color:rgba(222, 193, 252, 0.3);
+  transform:translateX(3px);
+}
+.contact-icon{
+  width:40px;
+  height:40px;
+  border-radius:8px;
+  background:rgba(255, 255, 255, 0.05);
+  color:var(--lilac);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.contact-icon svg{width:18px;height:18px}
+.contact-label{
+  font-family:"JBMono",monospace;
+  font-size:11px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  display:block;
+}
+.contact-val{
+  font-size:14px;
+  color:#fff;
+  font-weight:500;
+  word-break:break-all;
+}
+
+.contact-form{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px;
+}
+.form-group{margin-bottom:16px}
+.form-label{
+  display:block;
+  font-size:12.5px;
+  font-weight:500;
+  color:var(--text-sub);
+  margin-bottom:6px;
+}
+.form-input, .form-textarea{
+  width:100%;
+  background:rgba(7, 7, 9, 0.6);
+  border:1px solid rgba(255, 255, 255, 0.12);
+  border-radius:6px;
+  padding:10px 14px;
+  color:#fff;
+  font-family:inherit;
+  font-size:13.5px;
+  transition:border-color .15s;
+}
+.form-input:focus, .form-textarea:focus{
+  outline:none;
+  border-color:var(--lilac);
+  background:rgba(18, 20, 29, 0.85);
+}
+.form-textarea{resize:vertical;min-height:110px}
+.form-status{
+  margin-top:12px;
+  font-size:13px;
+  display:none;
+  color:var(--accent-green);
+}
+
+/* Project Deep-Dive Modal */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-overlay.active{display:flex}
+.modal-box{
+  background:#0f111a;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  max-width:680px;
+  width:100%;
+  max-height:90vh;
+  overflow-y:auto;
+  padding:32px;
+  position:relative;
+  box-shadow:0 24px 60px -15px rgba(0,0,0,0.8);
+}
+.modal-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:none;
+  border:0;
+  color:var(--text-muted);
+  cursor:pointer;
+  padding:4px;
+}
+.modal-close:hover{color:#fff}
+
+/* Footer */
+.footer{
+  border-top:1px solid var(--border);
+  padding:36px 24px;
+  background:#050507;
+  text-align:center;
+  font-size:13px;
+  color:var(--text-muted);
+}
+.footer p b{color:#fff}
+
+/* Responsive */
+@media (max-width:1024px){
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  .header-bar{height:64px}
+  .nav-links{
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    background:#0a0c13;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px 24px;
+    gap:14px;
+    clip-path:inset(0 0 100% 0);
+    transition:clip-path .25s ease;
+    visibility:hidden;
+  }
+  .nav-open .nav-links{
+    clip-path:inset(0);
+    visibility:visible;
+  }
+  .menu-btn{display:flex}
+  .header-cta-group .btn-gh-header{display:none}
+  .hero-meta-row{gap:14px;flex-direction:column;align-items:center}
+  .hero-stage{padding-top:86px}
+  .terminal-chips-bar{padding:10px 14px}
+  .case-card{padding:24px}
+}
+
+/* Entrance initial state */
+.is-entering .hero-name,
+.is-entering .hero-role,
+.is-entering .hero-headline-badges,
+.is-entering .hero-tagline,
+.is-entering .hero-actions,
+.is-entering .hero-meta-row,
+.is-entering .hero-pill{
+  opacity:0;
+}
+</style>
+</head>
+<body>
+
+<!-- Header Navigation -->
+<header class="header-bar" id="headerBar">
+  <div class="nav-container">
+    <a href="#home" class="brand-link" aria-label="Sanil Baitha Home">
+      <div class="brand-avatar" id="navAvatar">
+        <span id="navAvatarText">SB</span>
+      </div>
+      <div class="brand-text">
+        <span>Sanil Baitha</span>
+        <span class="brand-tag">CSE Student &bull; Developer</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#terminal">Sanil.exe</a>
+      <a href="#projects">Projects</a>
+      <a href="#workflow">AI Workflow</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-cta-group">
+      <a href="https://github.com/sanil-rgb" target="_blank" rel="noopener noreferrer" class="btn-gh-header" title="View GitHub Profile">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>sanil-rgb</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+        <i aria-hidden="true"></i>
+        <span class="menu-label">MENU</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- =========================================================
+       FEATURE 3: CINEMATIC PERSONAL HERO
+       ========================================================= -->
+  <section class="hero-stage" id="home" aria-label="Hero Introduction">
+    <div class="hero-bg">
+      <div class="hero-photo-fallback" id="photoFallback"></div>
+      <img src="assets/profile.jpg" alt="Sanil Baitha" class="hero-photo" id="heroPhoto" onerror="this.style.display='none';document.getElementById('photoFallback').style.opacity='1';">
+      <div class="hero-lift" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+    </div>
+
+    <!-- Photo Customizer / Instant Loader -->
+    <div class="photo-manager">
+      <label for="customPhotoInput" class="photo-manager-btn" title="Upload/Change photo in browser">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span>Upload Attached Photo</span>
+      </label>
+      <input type="file" id="customPhotoInput" class="photo-manager-input" accept="image/*">
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        <span>Actively Building &bull; Open for Internships &amp; Placements</span>
+      </div>
+
+      <h1 class="hero-name">Sanil Baitha</h1>
+
+      <p class="hero-role">
+        <strong>Computer Science Engineering Student</strong>
+      </p>
+
+      <div class="hero-headline-badges">
+        <span class="headline-badge highlight">AI-Assisted Software Development</span>
+        <span class="headline-badge">Full-Stack Web Development</span>
+        <span class="headline-badge">Python</span>
+      </div>
+
+      <p class="hero-tagline">
+        Building practical software projects, collaborating on real-world web applications, taking on freelance development work, and using modern AI tools as an everyday engineering partner.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">
+          <span>View Case Studies</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        </a>
+        <a href="#terminal" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span>Launch Sanil.exe</span>
+        </a>
+        <a href="#contact" class="btn-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Contact Me</span>
+        </a>
+      </div>
+
+      <div class="hero-meta-row">
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span>B.Tech in CSE: <b>Usha Martin University, Ranchi (CGPA: 7.00)</b></span>
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+          <span>Email: <b>sanilkumar3765@gmail.com</b></span>
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Phone: <b>8797089259</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURE 1: INTERACTIVE TERMINAL — Sanil.exe
+       ========================================================= -->
+  <section class="section-wrapper" id="terminal">
+    <div class="section-header">
+      <div class="section-pretitle">Developer Shell</div>
+      <h2 class="section-title">Sanil.exe &mdash; Interactive CLI</h2>
+      <p class="section-desc">Query verified information about my skills, projects, background, and workflow directly from the terminal prompt.</p>
+    </div>
+
+    <div class="terminal-window">
+      <!-- Title Bar -->
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot red" title="Close"></span>
+          <span class="terminal-dot yellow" title="Minimize"></span>
+          <span class="terminal-dot green" title="Maximize"></span>
+        </div>
+        <div class="terminal-title">
+          <span>sanil@fedora: ~/sanil.exe</span>
+          <span style="opacity:0.4;">— bash 5.2</span>
+        </div>
+        <div class="terminal-status-badge">ONLINE &bull; READY</div>
+      </div>
+
+      <!-- Quick Command Chips Bar -->
+      <div class="terminal-chips-bar">
+        <span class="terminal-chips-label">Quick Commands:</span>
+        <button class="chip-btn" onclick="executeTerminalCommand('help')">help</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('about')">about</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('skills')">skills</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('projects')">projects</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('experience')">experience</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('workflow')">workflow</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('education')">education</button>
+        <button class="chip-btn" onclick="executeTerminalCommand('contact')">contact</button>
+        <button class="chip-btn clear-btn" onclick="executeTerminalCommand('clear')">clear</button>
+      </div>
+
+      <!-- Terminal Output Screen -->
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-log-entry">
+          <div style="color:var(--text-muted);margin-bottom:8px;">
+            Sanil.exe [Version 2.4.0] &bull; Interactive Portfolio Terminal<br>
+            Type <span class="accent">help</span> or click any quick command chip above to inspect verified profile data.
+          </div>
+        </div>
+      </div>
+
+      <!-- Command Input Prompt -->
+      <form class="terminal-input-container" onsubmit="handleTerminalSubmit(event)">
+        <span class="terminal-prompt-symbol">sanil@dev:~$</span>
+        <input type="text" class="terminal-input" id="terminalInput" placeholder="type 'about', 'skills', 'projects', 'education', 'contact' or 'help'..." autocomplete="off" spellcheck="false">
+        <button type="submit" class="chip-btn" style="padding:4px 12px;">Run</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURE 2: PROFESSIONAL PROJECT CASE STUDIES
+       ========================================================= -->
+  <section class="section-wrapper" id="projects">
+    <div class="section-header">
+      <div class="section-pretitle">Verified Technical Portfolio</div>
+      <h2 class="section-title">Professional Project Case Studies</h2>
+      <p class="section-desc">Curated engineering work structured in chronological progression from real-world collaborative development to personal software.</p>
+    </div>
+
+    <div class="projects-showcase">
+      <!-- 1. ServeMe (Current Freelance Project) -->
+      <article class="case-card featured-primary" id="case-serveme">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">01</span>
+            <span class="case-badge badge-freelance">CURRENT PROJECT</span>
+            <span class="case-badge badge-freelance">COLLABORATIVE FREELANCE WORK</span>
+          </div>
+          <div class="case-status-indicator">
+            <span class="status-pulse-dot"></span>
+            <span>Currently In Development</span>
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">ServeMe</h3>
+          <div class="case-subtitle">Collaborative Web Platform Development under an Organization</div>
+        </div>
+
+        <p class="case-description">
+          Working collaboratively on ServeMe as a freelance development project under an organization, contributing to the development of a real-world web-based product. Represents active ongoing practical development with a live hosted deployment.
+        </p>
+
+        <div class="case-contribution-box">
+          <strong>Verified Project Context:</strong>
+          Collaborative development under an organization. Contributes directly to implementing product features and maintaining the web codebase for live production delivery.
+        </div>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">Web Development</span>
+          <span class="tech-pill">Collaborative Freelance</span>
+          <span class="tech-pill">Live Production Deployment</span>
+          <span class="tech-pill">Full-Stack Architecture</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://serveme.in/" target="_blank" rel="noopener noreferrer" class="btn-case-live">
+            <span>View Live Website</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+          <a href="https://github.com/Mayank-W-D/ServeMe" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('serveme')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 2. MediScan (Collaborative Team Project) -->
+      <article class="case-card" id="case-mediscan">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">02</span>
+            <span class="case-badge badge-team">COLLABORATIVE / TEAM PROJECT</span>
+            <span class="case-badge badge-team">AI / OCR PROTOTYPE</span>
+          </div>
+          <div style="font-family:'JBMono',monospace;font-size:11.5px;color:var(--accent-cyan)">
+            Collaborative Group Build
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">MediScan — Smart Prescription Scanner</h3>
+          <div class="case-subtitle">Collaborative AI-Powered Prescription Image Analysis</div>
+        </div>
+
+        <p class="case-description">
+          Collaborative AI-powered project developed as part of a team, focused on prescription image analysis and information extraction using modern AI technologies.
+        </p>
+
+        <div class="case-contribution-box">
+          <strong>My Contribution:</strong>
+          Collaborated with my teammate on developing the AI analysis pipeline, handling image input preprocessing, and structuring diagnostic data outputs.
+        </div>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">AI Technologies</span>
+          <span class="tech-pill">OCR &amp; Vision</span>
+          <span class="tech-pill">Image Processing</span>
+          <span class="tech-pill">Team Collaboration</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://github.com/mk1632003-cyber/MediScan" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Original Team Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('mediscan')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 3. Movie Hub -->
+      <article class="case-card" id="case-moviehub">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">03</span>
+            <span class="case-badge badge-personal">PERSONAL PROJECT</span>
+            <span class="case-badge badge-personal">WEB APPLICATION</span>
+          </div>
+          <div style="font-family:'JBMono',monospace;font-size:11.5px;color:var(--text-muted)">
+            Individual Build
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">Movie Hub</h3>
+          <div class="case-subtitle">Movie Details &amp; Interactive Discovery Website</div>
+        </div>
+
+        <p class="case-description">
+          A personal web development project built to showcase movie titles, ratings, release timelines, posters, and movie details using web APIs and clean responsive UI architecture.
+        </p>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">Web Development</span>
+          <span class="tech-pill">JavaScript</span>
+          <span class="tech-pill">HTML / CSS</span>
+          <span class="tech-pill">Movie APIs</span>
+          <span class="tech-pill">Responsive Layout</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://github.com/sanil-rgb/Movie-Hub-A-Movies-Details-Website" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('moviehub')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 4. Employee Project -->
+      <article class="case-card" id="case-employee">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">04</span>
+            <span class="case-badge badge-personal">PERSONAL PROJECT</span>
+            <span class="case-badge badge-personal">SOFTWARE APPLICATION</span>
+          </div>
+          <div style="font-family:'JBMono',monospace;font-size:11.5px;color:var(--text-muted)">
+            Individual Build
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">Employee Project</h3>
+          <div class="case-subtitle">Employee Information &amp; Record Management System</div>
+        </div>
+
+        <p class="case-description">
+          A software development project created to manage employee profiles, track workplace records, and implement structured data storage, retrieval, and updates.
+        </p>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">Software Engineering</span>
+          <span class="tech-pill">Data Management</span>
+          <span class="tech-pill">CRUD Operations</span>
+          <span class="tech-pill">Backend Logic</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://github.com/sanil-rgb/Employee_Project" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('employee')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 5. Forage GitHub Task -->
+      <article class="case-card" id="case-forage">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">05</span>
+            <span class="case-badge badge-personal">PRACTICAL TECHNICAL TASK</span>
+            <span class="case-badge badge-personal">VERSION CONTROL</span>
+          </div>
+          <div style="font-family:'JBMono',monospace;font-size:11.5px;color:var(--text-muted)">
+            Technical Simulation
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">Forage GitHub Task</h3>
+          <div class="case-subtitle">Practical Industry Simulation &amp; GitHub Workflows</div>
+        </div>
+
+        <p class="case-description">
+          A practical GitHub task completing simulated industry software engineering requirements, version control branch workflows, and codebase adjustments.
+        </p>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">Git</span>
+          <span class="tech-pill">GitHub Workflows</span>
+          <span class="tech-pill">Practical Task</span>
+          <span class="tech-pill">Code Integration</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://github.com/sanil-rgb/forage-github-task" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('forage')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 6. Silver-meme -->
+      <article class="case-card" id="case-silvermeme">
+        <div class="case-card-top">
+          <div class="case-badge-group">
+            <span class="case-badge badge-order">06</span>
+            <span class="case-badge badge-personal">ADDITIONAL TECHNICAL WORK</span>
+            <span class="case-badge badge-personal">WEB EXPERIMENT</span>
+          </div>
+          <div style="font-family:'JBMono',monospace;font-size:11.5px;color:var(--text-muted)">
+            Repository
+          </div>
+        </div>
+
+        <div class="case-title-row">
+          <h3 class="case-title">Silver-meme</h3>
+          <div class="case-subtitle">Web Experimentation &amp; Frontend Component Lab</div>
+        </div>
+
+        <p class="case-description">
+          An exploratory frontend repository built to test asset styling, experimental UI patterns, and interactive component scripts.
+        </p>
+
+        <div class="case-tech-stack">
+          <span class="tech-pill">HTML / CSS</span>
+          <span class="tech-pill">JavaScript</span>
+          <span class="tech-pill">Frontend Sandbox</span>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://github.com/sanil-rgb/silver-meme" target="_blank" rel="noopener noreferrer" class="btn-case-gh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+          <button class="btn-case-inspect" onclick="openProjectModal('silvermeme')">
+            <span>Inspect Details &rarr;</span>
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AI Tools & Modern Workflow Section -->
+  <section class="section-wrapper" id="workflow">
+    <div class="section-header">
+      <div class="section-pretitle">Modern Engineering Practice</div>
+      <h2 class="section-title">AI Tools &amp; Development Workflow</h2>
+      <p class="section-desc">Actively adopting modern AI technologies to accelerate prototyping, code investigation, and developer productivity.</p>
+    </div>
+
+    <!-- Tools Pill Row -->
+    <div class="ai-tools-row">
+      <div class="ai-tool-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+        <span>Google AI Studio</span>
+      </div>
+      <div class="ai-tool-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Gemini</span>
+      </div>
+      <div class="ai-tool-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>ChatGPT</span>
+      </div>
+      <div class="ai-tool-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span>Cursor</span>
+      </div>
+      <div class="ai-tool-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Antigravity</span>
+      </div>
+    </div>
+
+    <!-- Core Philosophy Positioning -->
+    <div class="positioning-quote">
+      "<b>I use AI as a modern engineering tool to accelerate development</b> while I remain responsible for the implementation, architectural decisions, testing, and refinement."
+    </div>
+
+    <!-- 6 Workflow Categories -->
+    <div class="workflow-grid">
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+        </div>
+        <h4 class="workflow-title">Prompt Engineering</h4>
+        <p class="workflow-desc">Creating structured prompts to communicate specifications, edge cases, and requirements clearly with AI systems.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h4 class="workflow-title">AI-Assisted Web Dev</h4>
+        <p class="workflow-desc">Using AI tools to accelerate layout scaffolding, UI implementation, component creation, and styling refinements.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4 class="workflow-title">Code Assistance &amp; Debugging</h4>
+        <p class="workflow-desc">Using AI to understand complex code, investigate traceback errors, inspect edge cases, and enhance implementations.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <h4 class="workflow-title">Project Prototyping</h4>
+        <p class="workflow-desc">Using AI-assisted workflows to rapidly translate ideas into functional prototypes and validate concepts with quick feedback.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+        </div>
+        <h4 class="workflow-title">UI/UX Improvement</h4>
+        <p class="workflow-desc">Exploring layout alternatives, responsive design improvements, readability adjustments, and micro-interactions.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h4 class="workflow-title">Documentation &amp; Problem Solving</h4>
+        <p class="workflow-desc">Synthesizing technical concepts, exploring alternative algorithmic approaches, and organizing clean markdown documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section class="section-wrapper" id="skills">
+    <div class="section-header">
+      <div class="section-pretitle">Core Competencies</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-desc">Languages, libraries, and tools I use to build software and intelligent systems.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category-header">
+          <div class="skill-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4 class="skill-category-title">Programming</h4>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">C++</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-category-header">
+          <div class="skill-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/></svg>
+          </div>
+          <h4 class="skill-category-title">Machine Learning / AI</h4>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Natural Language Processing</span>
+          <span class="skill-tag">Computer Vision</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-category-header">
+          <div class="skill-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+          </div>
+          <h4 class="skill-category-title">Frameworks &amp; Libraries</h4>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">React</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-category-header">
+          <div class="skill-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h4 class="skill-category-title">Development &amp; Tools</h4>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Jupyter Notebook</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Currently Learning Section -->
+  <section class="section-wrapper" id="learning">
+    <div class="section-header">
+      <div class="section-pretitle">Continuous Growth</div>
+      <h2 class="section-title">Currently Learning</h2>
+      <p class="section-desc">Active areas where I am expanding my technical depth and practical engineering capability.</p>
+    </div>
+
+    <div class="learning-grid">
+      <div class="learning-card">
+        <div class="learning-step">IN PROGRESS</div>
+        <h4 class="learning-title">Advanced Python</h4>
+        <p class="learning-desc">Improving Python programming practices, application architecture, performance optimization, and problem-solving.</p>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-step">IN PROGRESS</div>
+        <h4 class="learning-title">Generative AI &amp; AI APIs</h4>
+        <p class="learning-desc">Exploring generative AI, multimodal systems, structured prompt pipelines, and practical AI-powered application integrations.</p>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-step">IN PROGRESS</div>
+        <h4 class="learning-title">Modern Web Development</h4>
+        <p class="learning-desc">Deepening React, API integration patterns, state management, responsive UX, and full-stack development skills.</p>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-step">IN PROGRESS</div>
+        <h4 class="learning-title">AI-Assisted Software Engineering</h4>
+        <p class="learning-desc">Learning how to combine programming fundamentals with modern AI tooling to build and debug software more effectively.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Timeline Section -->
+  <section class="section-wrapper" id="education">
+    <div class="section-header">
+      <div class="section-pretitle">Academic Background</div>
+      <h2 class="section-title">Education Timeline</h2>
+      <p class="section-desc">Formal academic training in Computer Science &amp; Engineering.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2021 — PRESENT (CURRENT 4TH YEAR)</span>
+          <h4 class="timeline-degree">B.Tech in Computer Science &amp; Engineering</h4>
+          <div class="timeline-univ">Usha Martin University, Ranchi</div>
+          <div class="timeline-meta-badges">
+            <span class="timeline-badge">Standing: <strong>4th Year / 7th Semester</strong></span>
+            <span class="timeline-badge">Current CGPA: <strong>7.00 / 10.00</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot cyan"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">COMPLETED</span>
+          <h4 class="timeline-degree">Diploma in Computer Science &amp; Engineering</h4>
+          <div class="timeline-univ">Ram Krishna Dharmath Foundation University, Ranchi</div>
+          <div class="timeline-meta-badges">
+            <span class="timeline-badge">Degree: <strong>Diploma in CSE</strong></span>
+            <span class="timeline-badge">Final CGPA: <strong>6.50 / 10.00</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-wrapper" id="contact">
+    <div class="section-header">
+      <div class="section-pretitle">Direct Connection</div>
+      <h2 class="section-title">Contact &amp; Professional Links</h2>
+      <p class="section-desc">Reach out directly for internships, freelance development, or project collaborations.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info-panel">
+        <a href="mailto:sanilkumar3765@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">Email Address</span>
+            <span class="contact-val">sanilkumar3765@gmail.com</span>
+          </div>
+        </a>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">Phone</span>
+            <span class="contact-val">8797089259</span>
+          </div>
+        </div>
+
+        <a href="https://www.linkedin.com/in/sanil-kumar-288706324/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-val">linkedin.com/in/sanil-kumar-288706324/</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/sanil-rgb" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-val">github.com/sanil-rgb</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="senderName" class="form-label">Your Name</label>
+          <input type="text" id="senderName" class="form-input" placeholder="e.g. Recruiter / Collaborator" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senderEmail" class="form-label">Your Email</label>
+          <input type="email" id="senderEmail" class="form-input" placeholder="name@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senderSubject" class="form-label">Subject</label>
+          <input type="text" id="senderSubject" class="form-input" placeholder="Internship Opportunity / Project Collaboration" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senderMessage" class="form-label">Message</label>
+          <textarea id="senderMessage" class="form-textarea" placeholder="Hello Sanil, we came across your work on ServeMe and MediScan..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+          <span>Send Direct Message</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+
+        <div class="form-status" id="formStatusSuccess">
+          Opening your email client to send message to sanilkumar3765@gmail.com...
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="projectModal" onclick="if(event.target===this)closeProjectModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2026 <b>Sanil Baitha</b> &bull; Computer Science Engineering &bull; Building practical solutions with Python, web &amp; modern AI workflows.</p>
+</footer>
+
+<!-- Interactive Scripts -->
+<script>
+(function(){
+  var header = document.getElementById('headerBar');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuLabel = menuBtn.querySelector('.menu-label');
+  var navLinks = document.getElementById('navLinks');
+  var navAnchors = navLinks.querySelectorAll('a');
+
+  // Header scroll appearance
+  function onScroll(){
+    if(window.scrollY > 40){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile drawer toggle
+  function toggleNav(open){
+    var isOpen = open !== undefined ? open : !document.body.classList.contains('nav-open');
+    document.body.classList.toggle('nav-open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    if(menuLabel) menuLabel.textContent = isOpen ? 'CLOSE' : 'MENU';
+  }
+  menuBtn.addEventListener('click', function(){ toggleNav(); });
+
+  // Close nav on anchor click
+  navAnchors.forEach(function(a){
+    a.addEventListener('click', function(){
+      toggleNav(false);
+      navAnchors.forEach(function(l){ l.classList.remove('active'); });
+      a.classList.add('active');
+    });
+  });
+
+  // ScrollSpy
+  var sections = document.querySelectorAll('section[id]');
+  function updateScrollSpy(){
+    var scrollY = window.scrollY + 120;
+    sections.forEach(function(sec){
+      var top = sec.offsetTop;
+      var height = sec.offsetHeight;
+      var id = sec.getAttribute('id');
+      if(scrollY >= top && scrollY < top + height){
+        navAnchors.forEach(function(link){
+          if(link.getAttribute('href') === '#' + id){
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll', updateScrollSpy, {passive:true});
+
+  // User Attached Photo persistent state
+  var heroPhoto = document.getElementById('heroPhoto');
+  var navAvatar = document.getElementById('navAvatar');
+  var photoInput = document.getElementById('customPhotoInput');
+
+  function applyPhoto(src){
+    if(!src) return;
+    if(heroPhoto){
+      heroPhoto.src = src;
+      heroPhoto.style.display = 'block';
+    }
+    if(navAvatar){
+      navAvatar.innerHTML = '<img src="' + src + '" alt="Sanil Baitha" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">';
+    }
+  }
+
+  // Load custom photo if saved in localStorage
+  try{
+    var savedPhoto = localStorage.getItem('sanil_portfolio_custom_photo');
+    if(savedPhoto){
+      applyPhoto(savedPhoto);
+    }
+  }catch(e){}
+
+  // File upload input handler
+  if(photoInput){
+    photoInput.addEventListener('change', function(e){
+      var file = e.target.files && e.target.files[0];
+      if(file){
+        var reader = new FileReader();
+        reader.onload = function(evt){
+          var dataUrl = evt.target.result;
+          applyPhoto(dataUrl);
+          try{
+            localStorage.setItem('sanil_portfolio_custom_photo', dataUrl);
+          }catch(err){
+            console.warn('LocalStorage quota or storage restriction:', err);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+})();
+
+/* =========================================================
+   TERMINAL (Sanil.exe) ENGINE
+   ========================================================= */
+var terminalData = {
+  help: [
+    '<p><span class="highlight">Sanil.exe v2.4.0 — Available Commands:</span></p>',
+    '<p>  <span class="accent">about</span>       &bull; Overview of Sanil Baitha, profile and core focus</p>',
+    '<p>  <span class="accent">skills</span>      &bull; Languages, libraries, frameworks and tools</p>',
+    '<p>  <span class="accent">projects</span>    &bull; Case studies: ServeMe, MediScan, Movie Hub, and more</p>',
+    '<p>  <span class="accent">education</span>   &bull; B.Tech CSE (7.00 CGPA) &amp; Diploma CSE (6.50 CGPA)</p>',
+    '<p>  <span class="accent">experience</span>  &bull; Collaborative freelance project work (ServeMe)</p>',
+    '<p>  <span class="accent">workflow</span>    &bull; Practical AI-assisted software development workflow</p>',
+    '<p>  <span class="accent">contact</span>     &bull; Email, phone, LinkedIn and GitHub links</p>',
+    '<p>  <span class="accent">clear</span>       &bull; Reset the terminal window</p>'
+  ].join(''),
+
+  about: [
+    '<p><span class="highlight">Name:</span> Sanil Baitha</p>',
+    '<p><span class="highlight">Headline:</span> Computer Science Engineering Student | Python Developer</p>',
+    '<p><span class="highlight">Current Standing:</span> 4th Year / 7th Semester at Usha Martin University, Ranchi (CGPA: 7.00)</p>',
+    '<p><span class="highlight">Focus:</span> Building practical software solutions, collaborating on real-world applications, taking on freelance development work, and using modern AI tools as an engineering partner.</p>',
+    '<p><span class="cyan">&rarr; Use "projects" or "skills" to explore deeper.</span></p>'
+  ].join(''),
+
+  skills: [
+    '<p><span class="highlight">&boxdr;&boxh; PROGRAMMING:</span> Python, SQL, C++</p>',
+    '<p><span class="highlight">&boxdr;&boxh; MACHINE LEARNING / AI:</span> Machine Learning, Deep Learning, NLP, Computer Vision</p>',
+    '<p><span class="highlight">&boxdr;&boxh; FRAMEWORKS:</span> Scikit-Learn, TensorFlow, PyTorch, FastAPI, React</p>',
+    '<p><span class="highlight">&boxdr;&boxh; DEVELOPMENT &amp; TOOLS:</span> HTML, CSS, JavaScript, Git, GitHub, Docker, Jupyter Notebook, VS Code</p>',
+    '<p><span class="highlight">&boxdr;&boxh; AI TOOLS:</span> Google AI Studio, Gemini, ChatGPT, Cursor, Antigravity</p>'
+  ].join(''),
+
+  projects: [
+    '<p><span class="amber">[01] ServeMe &bull; CURRENT FREELANCE WORK</span> &bull; <span class="green">In Development</span></p>',
+    '<p>     Collaborative development under an organization. Live: <a href="https://serveme.in/" target="_blank" class="cyan">serveme.in</a> | Repo: <a href="https://github.com/Mayank-W-D/ServeMe" target="_blank" class="accent">Mayank-W-D/ServeMe</a></p>',
+    '<br>',
+    '<p><span class="accent">[02] MediScan &bull; COLLABORATIVE TEAM PROJECT</span></p>',
+    '<p>     AI-powered prescription scanner. Repo: <a href="https://github.com/mk1632003-cyber/MediScan" target="_blank" class="accent">mk1632003-cyber/MediScan</a></p>',
+    '<br>',
+    '<p><span class="highlight">[03] Movie Hub &bull; PERSONAL PROJECT</span></p>',
+    '<p>     Movie details &amp; discovery website. Repo: <a href="https://github.com/sanil-rgb/Movie-Hub-A-Movies-Details-Website" target="_blank" class="accent">sanil-rgb/Movie-Hub</a></p>',
+    '<br>',
+    '<p><span class="highlight">[04] Employee Project &bull; PERSONAL PROJECT</span></p>',
+    '<p>     Record management system. Repo: <a href="https://github.com/sanil-rgb/Employee_Project" target="_blank" class="accent">sanil-rgb/Employee_Project</a></p>',
+    '<br>',
+    '<p><span class="highlight">[05] Forage GitHub Task</span> &bull; Simulated technical task: <a href="https://github.com/sanil-rgb/forage-github-task" target="_blank" class="accent">sanil-rgb/forage-github-task</a></p>',
+    '<p><span class="highlight">[06] Silver-meme</span> &bull; Web experiment: <a href="https://github.com/sanil-rgb/silver-meme" target="_blank" class="accent">sanil-rgb/silver-meme</a></p>'
+  ].join(''),
+
+  education: [
+    '<p><span class="highlight">&bull; B.Tech in Computer Science &amp; Engineering</span></p>',
+    '<p>  Usha Martin University, Ranchi &bull; 4th Year / 7th Semester &bull; <span class="green">CGPA: 7.00 / 10.00</span></p>',
+    '<br>',
+    '<p><span class="highlight">&bull; Diploma in Computer Science &amp; Engineering</span></p>',
+    '<p>  Ram Krishna Dharmath Foundation University, Ranchi &bull; Completed &bull; <span class="green">CGPA: 6.50 / 10.00</span></p>'
+  ].join(''),
+
+  experience: [
+    '<p><span class="amber">ServeMe — Collaborative Freelance Development</span></p>',
+    '<p><span class="highlight">Status:</span> Currently In Development</p>',
+    '<p><span class="highlight">Context:</span> Working collaboratively on ServeMe as a freelance development project under an organization, contributing to the development of a real-world web-based product.</p>',
+    '<p><span class="highlight">Links:</span> Live Site: <a href="https://serveme.in/" target="_blank" class="cyan">https://serveme.in/</a> | GitHub: <a href="https://github.com/Mayank-W-D/ServeMe" target="_blank" class="accent">Mayank-W-D/ServeMe</a></p>'
+  ].join(''),
+
+  workflow: [
+    '<p><span class="highlight">Positioning:</span> "I use AI as a modern engineering tool to accelerate development while I remain responsible for the implementation, decisions, testing and refinement."</p>',
+    '<p><span class="cyan">1. Prompt Engineering:</span> Structured requirements and clear system instructions</p>',
+    '<p><span class="cyan">2. AI-Assisted Web Dev:</span> Accelerated component generation and layout prototyping</p>',
+    '<p><span class="cyan">3. Debugging:</span> Understanding tracebacks, investigating edge cases</p>',
+    '<p><span class="cyan">4. Prototyping:</span> Fast translation from concept to runnable proof-of-concept</p>',
+    '<p><span class="cyan">5. Tools:</span> Google AI Studio, Gemini, ChatGPT, Cursor, Antigravity</p>'
+  ].join(''),
+
+  contact: [
+    '<p><span class="highlight">Email:</span> <a href="mailto:sanilkumar3765@gmail.com" class="cyan">sanilkumar3765@gmail.com</a></p>',
+    '<p><span class="highlight">Phone:</span> 8797089259</p>',
+    '<p><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/sanil-kumar-288706324/" target="_blank" class="accent">linkedin.com/in/sanil-kumar-288706324/</a></p>',
+    '<p><span class="highlight">GitHub:</span> <a href="https://github.com/sanil-rgb" target="_blank" class="accent">github.com/sanil-rgb</a></p>',
+    '<p><span class="highlight">Location:</span> Ranchi, Jharkhand, India</p>'
+  ].join('')
+};
+
+function executeTerminalCommand(cmd){
+  var trimmed = cmd.trim().toLowerCase();
+  var body = document.getElementById('terminalBody');
+  if(!body) return;
+
+  if(trimmed === 'clear'){
+    body.innerHTML = '<div class="terminal-log-entry"><div style="color:var(--text-muted);">Terminal screen reset. Type <span class="accent">help</span> for commands.</div></div>';
+    return;
+  }
+
+  var outputHtml = terminalData[trimmed];
+  if(!outputHtml){
+    outputHtml = '<p style="color:#f87171;">command not found: "' + cmd + '". Type <span class="accent" style="cursor:pointer;" onclick="executeTerminalCommand(\'help\')">help</span> to view all commands.</p>';
+  }
+
+  var entry = document.createElement('div');
+  entry.className = 'terminal-log-entry';
+  entry.innerHTML = '' +
+    '<div class="terminal-prompt-line">' +
+      '<span class="terminal-user">sanil</span><span class="terminal-at">@</span><span class="terminal-host">dev</span>:<span class="terminal-path">~</span>$ ' +
+      '<span class="terminal-command-text">' + cmd + '</span>' +
+    '</div>' +
+    '<div class="terminal-output">' + outputHtml + '</div>';
+
+  body.appendChild(entry);
+  body.scrollTop = body.scrollHeight;
+}
+
+function handleTerminalSubmit(e){
+  e.preventDefault();
+  var input = document.getElementById('terminalInput');
+  if(!input) return;
+  var val = input.value;
+  if(val.trim()){
+    executeTerminalCommand(val);
+  }
+  input.value = '';
+}
+
+/* =========================================================
+   PROJECT CASE STUDY MODAL DATA
+   ========================================================= */
+var modalProjects = {
+  serveme: {
+    title: 'ServeMe',
+    badge: 'CURRENT FREELANCE PROJECT',
+    status: 'Currently In Development',
+    subtitle: 'Collaborative Web Platform Development under an Organization',
+    tech: 'Web Development, Collaborative Freelance, Live Hosting, Full-Stack Architecture',
+    overview: 'ServeMe represents active, real-world freelance development under an organization. It is built as a collaborative product designed for production usage and public deployment on serveme.in.',
+    highlights: [
+      'Collaborative Development: Built as a team effort within an organizational framework.',
+      'Active Lifecycle: Currently under active development, implementing user workflows and features.',
+      'Production Deployment: Hosted live on serveme.in with active domain infrastructure.',
+      'Codebase Management: Maintained collaboratively on GitHub.'
+    ],
+    live: 'https://serveme.in/',
+    github: 'https://github.com/Mayank-W-D/ServeMe'
+  },
+  mediscan: {
+    title: 'MediScan — Smart Prescription Scanner',
+    badge: 'COLLABORATIVE TEAM PROJECT',
+    status: 'Team Prototype',
+    subtitle: 'Prescription Image Analysis & Information Extraction',
+    tech: 'Python, AI Technologies, OCR, Image Processing, Multimodal Vision',
+    overview: 'MediScan is a collaborative AI-powered healthcare project developed with a teammate. It processes images of medical prescriptions to analyze and extract vital prescription information using modern AI technologies.',
+    highlights: [
+      'Collaborative Build: Engineered as a dedicated group project with a peer.',
+      'Multimodal AI: Leverages computer vision and AI models to transcribe handwritten prescriptions.',
+      'Structured Output: Extracts medicine names, dosages, and directions into accessible format.',
+      'Verified Role: Actively contributed to the AI pipeline and extraction verification.'
+    ],
+    github: 'https://github.com/mk1632003-cyber/MediScan'
+  },
+  moviehub: {
+    title: 'Movie Hub',
+    badge: 'PERSONAL PROJECT',
+    status: 'Completed',
+    subtitle: 'Movie Details & Interactive Discovery Portal',
+    tech: 'JavaScript, HTML5, CSS3, RESTful Movie APIs, Responsive Grid',
+    overview: 'Movie Hub is an individual web application that allows users to search, explore, and inspect details for thousands of films, including posters, ratings, release timelines, and plots.',
+    highlights: [
+      'Individual Development: Designed and coded entirely by Sanil Baitha.',
+      'API Integration: Consumes movie data asynchronously with responsive search handling.',
+      'Modern UI: Dark-themed movie cards with high-contrast metadata badges.',
+      'Public Codebase: Available on GitHub with clean repository structure.'
+    ],
+    github: 'https://github.com/sanil-rgb/Movie-Hub-A-Movies-Details-Website'
+  },
+  employee: {
+    title: 'Employee Project',
+    badge: 'PERSONAL PROJECT',
+    status: 'Completed',
+    subtitle: 'Employee Information & Record Management System',
+    tech: 'Software Engineering, CRUD Operations, Database / Data Logic',
+    overview: 'A personal software project focused on corporate record management. Implements core data handling routines for tracking employee profiles, departments, and personnel records.',
+    highlights: [
+      'Individual Development: Built as an independent software development project.',
+      'Data Integrity: Structured profiles for adding, updating, and viewing employee records.',
+      'Clean Logic: Demonstrates foundational principles of data management and modular programming.',
+      'GitHub Repository: Fully hosted on GitHub with commit history.'
+    ],
+    github: 'https://github.com/sanil-rgb/Employee_Project'
+  },
+  forage: {
+    title: 'Forage GitHub Task',
+    badge: 'PRACTICAL TECHNICAL TASK',
+    status: 'Completed Simulation',
+    subtitle: 'Practical GitHub Workflow & Simulation Exercises',
+    tech: 'Git, GitHub, Branch Workflows, Code Integration',
+    overview: 'A practical technical task completed as part of a simulation program. Demonstrates competency with version control, commit conventions, branch merging, and code integration.',
+    highlights: [
+      'Industry Simulation: Completed realistic version control tasks.',
+      'Workflow Rigor: Follows standard Git branch and review conventions.',
+      'Open Repository: Verifiable on GitHub.'
+    ],
+    github: 'https://github.com/sanil-rgb/forage-github-task'
+  },
+  silvermeme: {
+    title: 'Silver-meme',
+    badge: 'ADDITIONAL TECHNICAL WORK',
+    status: 'Exploratory Repository',
+    subtitle: 'Frontend Component & Script Sandbox',
+    tech: 'HTML, CSS, JavaScript, Component Prototyping',
+    overview: 'An exploratory repository used for experimenting with modern frontend layouts, asset styling, and lightweight JavaScript interactions.',
+    highlights: [
+      'Component Lab: Quick experimentation space for web UI techniques.',
+      'Public Code: Accessible on GitHub.'
+    ],
+    github: 'https://github.com/sanil-rgb/silver-meme'
+  }
+};
+
+function openProjectModal(key){
+  var p = modalProjects[key];
+  if(!p) return;
+  var liveBtn = p.live ? '<a href="' + p.live + '" target="_blank" rel="noopener noreferrer" class="btn-case-live" style="flex:1;justify-content:center;">View Live Website &rarr;</a>' : '';
+  var ghBtn = p.github ? '<a href="' + p.github + '" target="_blank" rel="noopener noreferrer" class="btn-case-gh" style="flex:1;justify-content:center;">View GitHub Repository</a>' : '';
+
+  var html = '' +
+    '<div style="margin-bottom:16px;">' +
+      '<div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">' +
+        '<span style="font-family:\'JBMono\',monospace;font-size:11px;color:var(--lilac);background:rgba(222,193,252,0.1);padding:3px 8px;border-radius:4px;">' + p.badge + '</span>' +
+        '<span style="font-family:\'JBMono\',monospace;font-size:11px;color:var(--accent-amber);background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:4px;">' + p.status + '</span>' +
+      '</div>' +
+      '<h2 style="font-size:24px;font-weight:700;color:#fff;">' + p.title + '</h2>' +
+      '<div style="font-size:13.5px;color:var(--accent-cyan);margin-top:2px;">' + p.subtitle + '</div>' +
+    '</div>' +
+    '<div style="margin-bottom:16px;padding:10px 14px;background:rgba(255,255,255,0.04);border-radius:6px;font-family:\'JBMono\',monospace;font-size:12px;color:var(--text-sub);">' +
+      '<strong style="color:#fff;">Technologies:</strong> ' + p.tech +
+    '</div>' +
+    '<p style="font-size:14px;color:var(--text-sub);line-height:1.7;margin-bottom:18px;">' + p.overview + '</p>' +
+    '<h4 style="font-size:14.5px;color:#fff;font-weight:600;margin-bottom:10px;">Engineering Highlights:</h4>' +
+    '<ul style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;list-style:none;">' +
+      p.highlights.map(function(h){
+        return '<li style="font-size:13px;color:var(--text-muted);display:flex;gap:8px;"><span style="color:var(--accent-green);font-weight:bold;">&check;</span><span>' + h + '</span></li>';
+      }).join('') +
+    '</ul>' +
+    '<div style="display:flex;gap:12px;flex-wrap:wrap;">' + liveBtn + ghBtn + '</div>';
+
+  document.getElementById('modalContent').innerHTML = html;
+  document.getElementById('projectModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal(){
+  document.getElementById('projectModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Contact Form Handler
+function handleContactSubmit(e){
+  e.preventDefault();
+  var name = document.getElementById('senderName').value;
+  var email = document.getElementById('senderEmail').value;
+  var subject = document.getElementById('senderSubject').value;
+  var message = document.getElementById('senderMessage').value;
+
+  var statusEl = document.getElementById('formStatusSuccess');
+  statusEl.style.display = 'block';
+
+  var mailtoUrl = 'mailto:sanilkumar3765@gmail.com?subject=' + encodeURIComponent('[Portfolio Contact] ' + subject) +
+                  '&body=' + encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message);
+  
+  setTimeout(function(){
+    window.location.href = mailtoUrl;
+  }, 500);
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    closeProjectModal();
+  }
+});
+</script>
+
+<!-- Script 2: Entrance animation -->
+<script>
+(function(){
+  var root = document.documentElement;
+  if(!root.classList.contains('is-entering')) return;
+  var EXPO = 'cubic-bezier(0.16,1,0.3,1)';
+
+  var waits = [document.fonts ? document.fonts.ready : null].filter(Boolean);
+  Promise.race([Promise.all(waits), new Promise(function(r){ setTimeout(r, 600); })]).then(function(){
+    if(!root.classList.contains('is-entering')) return;
+    window.__portfolioEntrance = true;
+    var anims = [];
+
+    function play(el, kf, delay, dur){
+      if(el) anims.push(el.animate(kf, { delay: delay * 1000, duration: dur * 1000, easing: EXPO, fill: 'both' }));
+    }
+    function rise(px){
+      return [{ opacity: 0, transform: 'translateY(' + px + 'px)' }, { opacity: 1, transform: 'none' }];
+    }
+
+    var q = function(s){ return document.querySelector(s); };
+
+    play(q('.hero-pill'), rise(8), 0.15, 0.7);
+    play(q('.hero-name'), [{ transform: 'translateY(30%)', opacity: 0 }, { transform: 'none', opacity: 1 }], 0.30, 0.85);
+    play(q('.hero-role'), rise(10), 0.45, 0.75);
+    play(q('.hero-headline-badges'), rise(12), 0.52, 0.75);
+    play(q('.hero-tagline'), rise(12), 0.60, 0.75);
+    play(q('.hero-actions'), rise(14), 0.70, 0.75);
+    play(q('.hero-meta-row'), rise(16), 0.80, 0.75);
+
+    root.classList.remove('is-entering');
+    Promise.all(anims.map(function(a){ return a.finished; })).then(function(){
+      anims.forEach(function(a){ a.cancel(); });
+    }, function(){});
+  });
+})();
+</script>
+
+</body>
+</html>
