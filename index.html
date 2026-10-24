@@ -2371,7 +2371,6 @@
     }
 
     html {
-      scroll-behavior: auto;
       scroll-padding-top: 88px;
       background: var(--mocha-brown);
       color: #E5E4E2;
@@ -4316,7 +4315,7 @@
         var destination = Math.max(0, target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 16);
         if (updateHistory && window.location.hash !== hash) history.pushState(null, '', hash);
         if (reducedMotion) {
-          window.scrollTo(0, destination);
+          window.scrollTo({ top: destination, behavior: 'instant' });
           return;
         }
 
@@ -4328,7 +4327,7 @@
           if (startedAt === undefined) startedAt = timestamp;
           var progress = Math.min(1, (timestamp - startedAt) / duration);
           var eased = 1 - Math.pow(1 - progress, 4);
-          window.scrollTo(0, start + distance * eased);
+          window.scrollTo({ top: start + distance * eased, behavior: 'instant' });
           if (progress < 1) scrollFrame = requestAnimationFrame(step);
           else scrollFrame = null;
         }
@@ -4533,7 +4532,7 @@
       }
       output.appendChild(fragment);
 
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !textNodes.length) {
+      if (!textNodes.length) {
         textNodes.forEach(function (item) { item.node.appendData(item.text); });
         var input = document.getElementById('terminalInput');
         if (input && input.value === command) input.value = '';
